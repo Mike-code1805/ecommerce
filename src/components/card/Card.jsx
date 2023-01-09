@@ -1,7 +1,6 @@
-// import AddIcon from '@mui/icons-material/AddIcon';
-// import RemoveIcon from '@mui/icons-material/Remove';
-// import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AddIcon from '@mui/icons-material/Add';
 import { useCounter } from '../../hooks/useCounter';
 import styles from './styles.module.css';
 
@@ -18,12 +17,14 @@ export const Card = () => {
         className={styles.image}
       />
       <div className={styles.info}>
-        <div className={styles.icon}>go</div>
         <div className={styles.icon} onClick={() => increaseBy(-1)}>
-          -
+          <RemoveIcon />
         </div>
         <div className={styles.icon} onClick={() => increaseBy(+1)}>
-          +
+          <AddIcon />
+        </div>
+        <div className={styles.icon}>
+          <AddShoppingCartIcon />
         </div>
       </div>
     </div>

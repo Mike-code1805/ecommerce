@@ -26,10 +26,15 @@ export const Slider = () => {
       {data.map((data, index) => (
         <div
           key={index}
-          className={index === current ? 'slide active' : styles.slide}
+          className={index === current ? styles.slideactive : styles.slide}
         >
           {index === current && (
-            <img key={index} className={styles.image} src={data.imagen} />
+            <img
+              alt=''
+              key={index}
+              className={styles.image}
+              src={data.imagen}
+            />
           )}
         </div>
       ))}

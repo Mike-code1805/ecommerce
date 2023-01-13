@@ -1,10 +1,10 @@
-import { Slider } from './components/slider/Slider';
+// import { Footer } from './components/footer/Footer';
 import { Navigation } from './routes/Navigation';
 
 function App() {
   return (
     <div>
-      <Slider />
+      <Navigation />
     </div>
   );
 }

@@ -1,14 +1,15 @@
 import styles from './styles.module.css';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Badge from '@mui/material/Badge';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { routes } from '../../routes/routes';
 
 export const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <div className={styles.left}>
+        <div className={styles.left} onClick={() => navigate('/')}>
           <img
             alt=''
             src={require('../../assets/logo.png')}

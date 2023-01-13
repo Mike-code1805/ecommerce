@@ -1,17 +1,18 @@
 .container {
   width: 125px;
+  height: 90px;
 }
 
 .wrapper {
   padding: 10px 0px 10px;
+  position: fixed; 
   top: 0px;
   left: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
   width: 100%;
-  background-color: rgb(241, 166, 132);
+  background-color: rgb(255, 255, 255);
   overflow: hidden;
   transition: 0.4s;
   z-index: 99;

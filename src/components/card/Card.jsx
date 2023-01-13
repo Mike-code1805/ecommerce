@@ -8,17 +8,13 @@ import { Title } from './Title';
 import { Buttons } from './Buttons';
 import { Image } from './Image';
 
-export const Card = () => {
+export const Card = ({ title, image }) => {
   const { counter, increaseBy } = useCounter({ minValue: 2, maxValue: 5 });
 
   return (
     <div className={styles.container}>
-      <Title title={counter} />
-      <Image
-        img={
-          'https://imagenpng.com/wp-content/uploads/2015/03/Dragon-Ball-Z-Png.png'
-        }
-      />
+      <Title title={title} />
+      <Image img={image} />
       <div className={styles.info}>
         <Buttons children={<AddShoppingCartIcon />} />
         <Buttons

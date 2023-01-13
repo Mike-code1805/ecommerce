@@ -1,11 +1,12 @@
 import React from 'react';
-import { Card, Navbar } from '../components';
+import { Cards, Navbar, Slider } from '../components';
+import '../styles/MainPage.css';
 
 export const MainPage = () => {
   return (
-    <>
-      <Navbar />
-      <Card />
-    </>
+    <div className='main'>
+      <Cards />
+      <Slider />
+    </div>
   );
 };

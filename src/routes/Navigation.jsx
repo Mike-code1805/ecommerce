@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
+import { Navbar } from '../components';
 // import { AboutUs, Login, MainPage, Products, Register } from '../pages';
 import { routes } from './routes';
 
 export const Navigation = () => {
   return (
     <div>
+      <Navbar />
       <Routes>
         {routes.map(({ path, component: Component }, index) => (
           <Route key={index} path={path} element={<Component />} />

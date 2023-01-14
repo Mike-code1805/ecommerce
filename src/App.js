@@ -1,9 +1,10 @@
-import { MainPage } from './pages/MainPage';
+// import { Footer } from './components/footer/Footer';
+import { Navigation } from './routes/Navigation';
 
 function App() {
   return (
-    <div className='App'>
-      <MainPage />
+    <div>
+      <Navigation />
     </div>
   );
 }

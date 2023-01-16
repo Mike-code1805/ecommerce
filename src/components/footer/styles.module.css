@@ -1,6 +1,7 @@
 .container {
   display: flex;
   background-color: rgb(241, 164, 101);
+  margin-top: 50px;
 }
 
 .left {
@@ -37,6 +38,8 @@
 
 .title {
   margin-bottom: 20px;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .list {
@@ -45,6 +48,7 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  font-size: 20px;
 }
 
 .listItem {

@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { useState } from 'react';
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 
 export const Slider = () => {
   const [current, setCurrent] = useState(0);
@@ -36,6 +37,14 @@ export const Slider = () => {
                 className={styles.image}
                 src={data.imagen}
               />
+              <div className={styles.textContainer}>
+                <h1>{data.title}</h1>
+                <h2>{data.description}</h2>
+                <button className={styles.button}>
+                  Comprar
+                  {<ArrowCircleRightOutlinedIcon />}
+                </button>
+              </div>
             </>
           )}
         </div>

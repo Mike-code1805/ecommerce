@@ -1,3 +1,5 @@
+export { Footer } from './footer/Footer';
+
 export { Cards } from './cards/Cards';
 
 export { Slider } from './slider/Slider';

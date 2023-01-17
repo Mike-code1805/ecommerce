@@ -1,3 +1,4 @@
+import { Cart } from '../components';
 import { AboutUs, Login, MainPage, Products, Register } from '../pages';
 
 export const routes = [
@@ -25,5 +26,10 @@ export const routes = [
     path: '/auth/login',
     component: Login,
     name: 'INICIAR SESION',
+  },
+  {
+    path: '/api/cart',
+    component: Cart,
+    name: '',
   },
 ];

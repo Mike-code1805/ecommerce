@@ -9,13 +9,13 @@ import { Image } from './Image';
 import { useDispatch } from 'react-redux';
 import { addProduct, restCart } from '../../context/cart';
 
-export const Card = ({ id, title, image }) => {
+export const Card = ({ product }) => {
   const dispatch = useDispatch();
 
   return (
     <div className={styles.container}>
-      <Title title={title} />
-      <Image img={image} />
+      <Title title={product.title} />
+      <Image img={product.image} />
       <div className={styles.info}>
         <Buttons children={<AddShoppingCartIcon />} />
         <Buttons
@@ -24,7 +24,7 @@ export const Card = ({ id, title, image }) => {
         />
         <Buttons
           children={<AddIcon />}
-          funcOnClick={() => dispatch(addProduct({ id, title, image }))}
+          funcOnClick={() => dispatch(addProduct(product))}
         />
       </div>
     </div>

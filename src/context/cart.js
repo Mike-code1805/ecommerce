@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   products: [],
   quantity: 0,
+  total: 0,
 };
 
 export const cartSlice = createSlice({
@@ -17,6 +18,7 @@ export const cartSlice = createSlice({
       console.log({ findDuplicatedProduct });
       state.products.push(action.payload);
       state.quantity += 1;
+      state.total += action.payload.price;
     },
     restCart: (state) => {
       state.products = [];

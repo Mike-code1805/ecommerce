@@ -31,7 +31,10 @@ export const Navbar = () => {
           <div className={styles.menuItem}>INICIAR SESION</div> */}
         </div>
         <div className={styles.right}>
-          <div className={styles.menuItem}>
+          <div
+            className={styles.menuItem}
+            onClick={() => navigate('/api/cart')}
+          >
             <Badge
               badgeContent={quantity}
               color='primary'

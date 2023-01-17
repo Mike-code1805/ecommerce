@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import { useProducts } from '../../hooks/useProducts';
 import { Card } from '../card/Card';
+import { Loading } from '../loading/Loading';
 import styles from './styles.module.css';
 
 export const Cards = () => {
-  const [products, setProducts] = useState([]);
-  const count = useSelector((state) => state.cart);
-  // const dispatch = useDispatch();
-  console.log(count);
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((json) => setProducts(json));
-  }, []);
+  const { isFetching, products } = useProducts();
 
-  // console.log(products);
+  if (isFetching) {
+    return (
+      <div className={styles.container}>
+        <Loading />
+      </div>
+    );
+  }
+
   return (
     <div className={styles.container}>
-      {products.map(({ id, title, image }, index) => (
-        <Card key={index} id={id} title={title} image={image} />
+      {products.map((prod, index) => (
+        <Card key={index} product={prod} />
       ))}
     </div>
   );

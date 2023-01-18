@@ -1,5 +1,11 @@
-import { Cart } from '../components';
-import { AboutUs, Login, MainPage, Products, Register } from '../pages';
+import {
+  AboutUs,
+  CartPage,
+  Login,
+  MainPage,
+  Products,
+  Register,
+} from '../pages';
 
 export const routes = [
   {
@@ -29,7 +35,7 @@ export const routes = [
   },
   {
     path: '/api/cart',
-    component: Cart,
+    component: CartPage,
     name: '',
   },
 ];

@@ -1,0 +1,14 @@
+.main {
+  padding-top: 100px;
+  background-color: rgb(167, 164, 160);
+}
+
+.containerFilter {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+}

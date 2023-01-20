@@ -1,3 +1,5 @@
+export { Search } from './searching/Search';
+
 export { Cart } from './cart/Cart';
 
 export { Loading } from './loading/Loading';

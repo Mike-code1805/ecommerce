@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
+import { useCarts } from '../../hooks/useCarts';
 // import { useProducts } from '../../hooks/useProducts';
 import { Loading } from '../loading/Loading';
 import './style.css';
@@ -9,24 +10,24 @@ export const SingleCart = ({ idProduct }) => {
   //     id: idProduct,
   //   });
 
-  const [isFetching, setIsFetching] = useState(true);
-  const [actualProd, setActualProd] = useState({});
+  // const [isFetching, setIsFetching] = useState(true);
+  // const [actualProd, setActualProd] = useState({});
+  const { isFetchingProduc, actualProd } = useCarts({ idProduct });
+  // const getSingleProduct = async (idValue) => {
+  //   try {
+  //     await fetch(`https://fakestoreapi.com/products/${idValue || 2}`)
+  //       .then((res) => res.json())
+  //       .then((json) => setActualProd(json));
+  //     setIsFetching(false);
+  //   } catch (error) {}
+  // };
 
-  const getSingleProduct = async (idValue) => {
-    try {
-      await fetch(`https://fakestoreapi.com/products/${idValue || 2}`)
-        .then((res) => res.json())
-        .then((json) => setActualProd(json));
-      setIsFetching(false);
-    } catch (error) {}
-  };
+  // useEffect(() => {
+  //   console.log(idProduct);
+  //   getSingleProduct(idProduct);
+  // }, [idProduct]);
 
-  useEffect(() => {
-    console.log(idProduct);
-    getSingleProduct(idProduct);
-  }, [idProduct]);
-
-  if (isFetching) {
+  if (isFetchingProduc) {
     return (
       <div className='containerLoading'>
         <Loading />

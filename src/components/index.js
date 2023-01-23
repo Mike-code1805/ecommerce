@@ -1,3 +1,7 @@
+export { RegisterComponent } from './register/RegisterComponent';
+
+export { LoginComponent } from './login/LoginComponent';
+
 export { Search } from './searching/Search';
 
 export { Cart } from './cart/Cart';

@@ -1,5 +1,5 @@
-import React from 'react';
+import { RegisterComponent } from '../components';
 
 export const Register = () => {
-  return <div>Register</div>;
+  return <RegisterComponent />;
 };

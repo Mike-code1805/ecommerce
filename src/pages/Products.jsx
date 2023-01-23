@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Card, Loading, Search } from '../components';
+import { Card, Loading, Navbar, Search } from '../components';
 import { useFilterProduct } from '../hooks/useProductAxios';
 import '../styles/Products.css';
 
@@ -34,6 +34,7 @@ export const Products = () => {
   console.log({ productsFiltered });
   return (
     <div className='main'>
+      <Navbar />
       <Search title='BUSCA AQUÍ TUS PRODUCTOS' handleChange={dataInput} />
       {isFetching ? (
         <div className='containerFilter'>

@@ -23,6 +23,7 @@ export const useFilterProduct = () => {
 
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line
   }, []);
 
   return {

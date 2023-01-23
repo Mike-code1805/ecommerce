@@ -1,5 +1,5 @@
 // import { useSelector } from 'react-redux';
-import { useProducts } from '../../hooks/useProducts';
+import { useProducts } from '../../hooks/useProductsFetch';
 import { Card } from '../card/Card';
 import { Loading } from '../loading/Loading';
 import styles from './styles.module.css';

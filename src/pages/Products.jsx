@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Card, Loading, Search } from '../components';
-import { useFilterProduct } from '../hooks/useFilterProduct';
+import { useFilterProduct } from '../hooks/useProductAxios';
 import '../styles/Products.css';
 
 export const Products = () => {

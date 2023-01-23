@@ -32,12 +32,6 @@
   font-family: monospace;
 }
 
-.subTitle {
-  font-size: 12;
-  font-weight: 300;
-  font-family: monospace;
-}
-
 .form {
   display: flex;
   flex-direction: column;

@@ -1,194 +1,85 @@
-import React from 'react';
-import './styles.css';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import styles from './styles.module.css';
+import { IconButton } from '@mui/material';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 export const Footer = () => {
   return (
-    <div>
-      <footer id='dk-footer' className='dk-footer'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-12 col-lg-4'>
-              <div className='dk-footer-box-info'>
-                <a href='index.html' className='footer-logo'>
-                  <img
-                    src='images/footer_logo.png'
-                    alt='footer_logo'
-                    className='img-fluid'
-                  />
-                </a>
-                <p className='footer-info-text'>
-                  Reference site about Lorem Ipsum, giving information on its
-                  origins, as well as a random Lipsum generator.
-                </p>
-                <div className='footer-social-link'>
-                  <h3>Follow us</h3>
-                  <ul>
-                    <li>
-                      <a href='#'>
-                        <i className='fa fa-facebook'></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href='#'>
-                        <i className='fa fa-twitter'></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href='#'>
-                        <i className='fa fa-google-plus'></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href='#'>
-                        <i className='fa fa-linkedin'></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href='#'>
-                        <i className='fa fa-instagram'></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className='footer-awarad'>
-                <img src='images/icon/best.png' alt='' />
-                <p>Best Design Company 2019</p>
-              </div>
-            </div>
-
-            <div className='col-md-12 col-lg-8'>
-              <div className='row'>
-                <div className='col-md-6'>
-                  <div className='contact-us'>
-                    <div className='contact-icon'>
-                      <i className='fa fa-map-o' aria-hidden='true'></i>
-                    </div>
-
-                    <div className='contact-info'>
-                      <h3>Jaipur India</h3>
-                      <p>5353 Road Avenue</p>
-                    </div>
-                  </div>
-                  <div className='col-md-6'>
-                    <div className='contact-us contact-us-last'>
-                      <div className='contact-icon'>
-                        <i
-                          className='fa fa-volume-control-phone'
-                          aria-hidden='true'
-                        ></i>
-                      </div>
-
-                      <div className='contact-info'>
-                        <h3>95 711 9 5353</h3>
-                        <p>Give us a call</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className='row'>
-                  <div className='col-md-12 col-lg-6'>
-                    <div className='footer-widget footer-left-widget'>
-                      <div className='section-heading'>
-                        <h3>Useful Links</h3>
-                        <span className='animate-border border-black'></span>
-                      </div>
-                      <ul>
-                        <li>
-                          <a href='#'>About us</a>
-                        </li>
-                        <li>
-                          <a href='#'>Services</a>
-                        </li>
-                        <li>
-                          <a href='#'>Projects</a>
-                        </li>
-                        <li>
-                          <a href='#'>Our Team</a>
-                        </li>
-                      </ul>
-                      <ul>
-                        <li>
-                          <a href='#'>Contact us</a>
-                        </li>
-                        <li>
-                          <a href='#'>Blog</a>
-                        </li>
-                        <li>
-                          <a href='#'>Testimonials</a>
-                        </li>
-                        <li>
-                          <a href='#'>Faq</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className='col-md-12 col-lg-6'>
-                    <div className='footer-widget'>
-                      <div className='section-heading'>
-                        <h3>Subscribe</h3>
-                        <span className='animate-border border-black'></span>
-                      </div>
-                      <p>
-                        Reference site about Lorem Ipsum, giving information on
-                        its origins, as well.
-                      </p>
-                      <form action='#'>
-                        <div className='form-row'>
-                          <div className='col dk-footer-form'>
-                            <input
-                              type='email'
-                              className='form-control'
-                              placeholder='Email Address'
-                            />
-                            <button type='submit'>
-                              <i className='fa fa-send'></i>
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div className={styles.container}>
+      <div className={styles.left}>
+        <h1>ECOMMERCE APP</h1>
+        <p className={styles.desc}>
+          En diseño, parte final de la plantilla en la que suele situarse la
+          información legal y las opciones para actualizar el perfil o darse de
+          baja de la lista.
+        </p>
+        <div className={styles.socialContainer}>
+          <div className={styles.icon}>
+            <IconButton
+              size='large'
+              color='primary'
+              // href='https://www.facebook.com/miguelenrique.sacaaccostupa/'
+            >
+              <FacebookOutlinedIcon fontSize='inherit' />
+            </IconButton>
           </div>
-
-          <div className='copyright'>
-            <div className='container'>
-              <div className='row'>
-                <div className='col-md-6'>
-                  <span>Copyright © 2019, All Right Reserved Seobin</span>
-                </div>
-
-                <div className='col-md-6'>
-                  <div className='copyright-menu'>
-                    <ul>
-                      <li>
-                        <a href='#'>Home</a>
-                      </li>
-                      <li>
-                        <a href='#'>Terms</a>
-                      </li>
-                      <li>
-                        <a href='#'>Privacy Policy</a>
-                      </li>
-                      <li>
-                        <a href='#'>Contact</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className={styles.icon}>
+            <IconButton
+              size='medium'
+              color='secondary'
+              // href='https://www.facebook.com/miguelenrique.sacaaccostupa/'
+            >
+              <InstagramIcon fontSize='inherit' />
+            </IconButton>
           </div>
-          <div id='back-to-top' className='back-to-top'>
+          <div className={styles.icon}>
+            <IconButton
+              size='medium'
+              color='primary'
+              // href='https://www.facebook.com/miguelenrique.sacaaccostupa/'
+            >
+              <TwitterIcon fontSize='inherit' />
+            </IconButton>
+          </div>
+          <div className={styles.icon}>
+            <IconButton
+              size='medium'
+              color='secondary'
+              // href='https://www.facebook.com/miguelenrique.sacaaccostupa/'
+            >
+              <PinterestIcon fontSize='inherit' />
+            </IconButton>
           </div>
         </div>
-      </footer>
+      </div>
+      <div className={styles.center}>
+        <h3 className={styles.title}>ENLACES DIRECTOS:</h3>
+        <ul className={styles.list}>
+          <li className={styles.listItem}>Home</li>
+          <li className={styles.listItem}>Productos</li>
+          <li className={styles.listItem}>Acerca de</li>
+        </ul>
+      </div>
+      <div className={styles.right}>
+        <h3 className={styles.title}>CONTACTO:</h3>
+        <div className={styles.contactItem}>
+          <LocationOnIcon style={{ marginRight: '10px' }} /> Cusco - Cusco -
+          Perú 82001
+        </div>
+        <div className={styles.contactItem}>
+          <LocalPhoneIcon style={{ marginRight: '10px' }} /> +51 982 786 881
+        </div>
+        <div className={styles.contactItem}>
+          <MailOutlineIcon style={{ marginRight: '10px' }} />
+          miguelenrique1805@gmail.com
+        </div>
+        <img alt='' src='https://i.ibb.co/Qfvn4z6/payment.png' />
+      </div>
     </div>
   );
 };

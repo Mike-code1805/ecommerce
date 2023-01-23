@@ -1,3 +1,11 @@
+export { Search } from './searching/Search';
+
+export { Cart } from './cart/Cart';
+
+export { Loading } from './loading/Loading';
+
+export { Footer } from './footer/Footer';
+
 export { Cards } from './cards/Cards';
 
 export { Slider } from './slider/Slider';

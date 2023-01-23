@@ -1,4 +1,11 @@
-import { AboutUs, Login, MainPage, Products, Register } from '../pages';
+import {
+  AboutUs,
+  CartPage,
+  Login,
+  MainPage,
+  Products,
+  Register,
+} from '../pages';
 
 export const routes = [
   {
@@ -25,5 +32,10 @@ export const routes = [
     path: '/auth/login',
     component: Login,
     name: 'INICIAR SESION',
+  },
+  {
+    path: '/api/cart',
+    component: CartPage,
+    name: '',
   },
 ];

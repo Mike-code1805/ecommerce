@@ -3,9 +3,11 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Badge from '@mui/material/Badge';
 import { Link, useNavigate } from 'react-router-dom';
 import { routes } from '../../routes/routes';
+import { useSelector } from 'react-redux';
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const quantity = useSelector((state) => state.cart.quantity);
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -29,8 +31,15 @@ export const Navbar = () => {
           <div className={styles.menuItem}>INICIAR SESION</div> */}
         </div>
         <div className={styles.right}>
-          <div className={styles.menuItem}>
-            <Badge badgeContent={3} color='primary' overlap='rectangular'>
+          <div
+            className={styles.menuItem}
+            onClick={() => navigate('/api/cart')}
+          >
+            <Badge
+              badgeContent={quantity}
+              color='primary'
+              overlap='rectangular'
+            >
               <AddShoppingCartIcon fontSize='large' />
             </Badge>
           </div>

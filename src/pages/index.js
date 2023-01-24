@@ -1,3 +1,4 @@
+export { Product } from './Product';
 export { CartPage } from './CartPage';
 export { AboutUs } from './AboutUs';
 export { Login } from './Login';

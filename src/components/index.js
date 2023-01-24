@@ -1,3 +1,5 @@
+export { ProductDetail } from './productDetail/ProductDetail';
+
 export { RegisterComponent } from './register/RegisterComponent';
 
 export { LoginComponent } from './login/LoginComponent';

@@ -5,6 +5,7 @@ import {
   MainPage,
   Products,
   Register,
+  Product,
 } from '../pages';
 
 export const routes = [
@@ -36,6 +37,11 @@ export const routes = [
   {
     path: '/api/cart',
     component: CartPage,
+    name: '',
+  },
+  {
+    path: '/api/products/:id',
+    component: Product,
     name: '',
   },
 ];

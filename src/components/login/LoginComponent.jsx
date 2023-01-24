@@ -1,10 +1,11 @@
 import { Form, Formik } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Input } from "../form/Input";
 import styles from "./styles.module.css";
 
 export const LoginComponent = () => {
-  // const [field] = useField({ name: "email" });
+  const navigate = useNavigate();
 
   return (
     <div className={styles.container}>
@@ -36,16 +37,21 @@ export const LoginComponent = () => {
                 label="Escriba su contraseña"
                 name="password"
                 placeholder="********"
-                type='password'
+                type="password"
               />
 
               <button type="submit" className={styles.button}>
                 INGRESAR
               </button>
-              {/* <a className={styles.link}>Regístrate</a> */}
             </Form>
           )}
         </Formik>
+        <button
+          className={styles.buttonRegister}
+          onClick={() => navigate("/auth/register")}
+        >
+          Regístrate
+        </button>
       </div>
     </div>
   );

@@ -1,45 +1,78 @@
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
-import styles from './styles.module.css';
-import { Navbar } from '../header/Navbar';
-import { Footer } from '../footer/Footer';
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
+import styles from "./styles.module.css";
+import { Navbar } from "../header/Navbar";
+import { Footer } from "../footer/Footer";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { productApi } from "../../api/productApi";
+import { Loading } from "../loading/Loading";
+import { useCounter } from "../../hooks/useCounter";
 
 export const ProductDetail = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[3];
+  const { counter, increaseBy } = useCounter({ minValue: 1, maxValue: 10 });
+  const [product, setproduct] = useState({});
+  const [isFetching, setisFetching] = useState(true);
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const response = await productApi.get(
+          `https://fakestoreapi.com/products/${id}`
+        );
+        setproduct(response.data);
+        setisFetching(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProduct();
+  }, [id]);
+
   return (
     <div className={styles.container}>
       <Navbar />
-      <div className={styles.wrapper}>
-        <div className={styles.imgContainer}>
-          <img
-            className={styles.image}
-            src='https://assets.stickpng.com/images/580b57fbd9996e24bc43bf27.png'
-            alt=''
-          />
+      {isFetching ? (
+        <div className="containerLoading">
+          <Loading />
         </div>
-        <div className={styles.infoContainer}>
-          <h1 className={styles.title}>Título del producto</h1>
-          <p className={styles.desc}>Descripción del producto</p>
-          <span className={styles.price}>S/ 10.00</span>
-          <div className={styles.filterContainer}>
-            <div className={styles.filter}>
-              <span className={styles.filterTitle}>Id:</span>
-              fnawjfnhew124512461
+      ) : (
+        <div className={styles.wrapper}>
+          <div className={styles.imgContainer}>
+            <img className={styles.image} src={product.image} alt="" />
+          </div>
+          <div className={styles.infoContainer}>
+            <h1 className={styles.title}>{product.title}</h1>
+            <p className={styles.desc}>{product.description}</p>
+            <span className={styles.price}>S/ {product.price}</span>
+            <div className={styles.filterContainer}>
+              <div className={styles.filter}>
+                <span className={styles.filterTitle}>Id:</span>
+                {product.id}
+              </div>
+              {/* <div className={styles.filter}>
+            <span className={styles.filterTitle}>Dimensiones:</span>
+            Dimensiones
+          </div> */}
             </div>
-            <div className={styles.filter}>
-              <span className={styles.filterTitle}>Dimensiones:</span>
-              Dimensiones
+            <div className={styles.addContainer}>
+              <div className={styles.amountContainer}>
+                <div onClick={() => increaseBy(-1)}>
+                  <RemoveOutlinedIcon />
+                </div>
+                <span className={styles.amount}>{counter}</span>
+                <div onClick={() => increaseBy(+1)}>
+                  <AddOutlinedIcon />
+                </div>
+              </div>
+              <button className={styles.button}>Poner al carrito</button>
             </div>
           </div>
-          <div className={styles.addContainer}>
-            <div className={styles.amountContainer}>
-              <RemoveOutlinedIcon />
-              <span className={styles.amount}>1</span>
-              <AddOutlinedIcon />
-            </div>
-            <button className={styles.button}>Poner al carrito</button>
-          </div>
         </div>
-      </div>
+      )}
+
       <Footer />
     </div>
   );

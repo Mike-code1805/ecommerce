@@ -71,6 +71,30 @@
   background-color: #1d4114;
 }
 
+.buttonRegister {
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: #f5c73c;
+  color: white;
+  cursor: pointer;
+  margin: 10px 0px 10px 0px;
+  border-radius: 10px;
+  font-family: monospace;
+}
+
+.buttonRegister:hover {
+  background-color: #926b2b;
+}
+
+.buttonRegister:active {
+  background-color: #1a92dc;
+}
+
+.buttonRegister:disabled {
+  color: rgb(5, 87, 39);
+  cursor: not-allowed;
+}
 
 .button:disabled {
   color: rgb(5, 87, 39);

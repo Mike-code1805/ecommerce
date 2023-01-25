@@ -4,32 +4,13 @@ import styles from "./styles.module.css";
 import { Navbar } from "../header/Navbar";
 import { Footer } from "../footer/Footer";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { productApi } from "../../api/productApi";
 import { Loading } from "../loading/Loading";
-import { useCounter } from "../../hooks/useCounter";
+import { useProduct } from "../../hooks/useProduct";
 
 export const ProductDetail = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[3];
-  const { counter, increaseBy } = useCounter({ minValue: 1, maxValue: 10 });
-  const [product, setproduct] = useState({});
-  const [isFetching, setisFetching] = useState(true);
-
-  useEffect(() => {
-    const getProduct = async () => {
-      try {
-        const response = await productApi.get(
-          `https://fakestoreapi.com/products/${id}`
-        );
-        setproduct(response.data);
-        setisFetching(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProduct();
-  }, [id]);
+  const { counter, increaseBy, isFetching, product } = useProduct({ id: id });
 
   return (
     <div className={styles.container}>

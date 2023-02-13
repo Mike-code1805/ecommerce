@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
@@ -7,18 +7,26 @@ const initialState = {
 };
 
 export const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
     addProduct: (state, action) => {
       const findDuplicatedProduct = state.products.findIndex(
         (product) => product.id === action.payload.id
       );
-      if (findDuplicatedProduct === 0 || findDuplicatedProduct > 0) return;
-      console.log({ findDuplicatedProduct });
-      state.products.push(action.payload);
-      state.quantity += 1;
-      state.total += action.payload.price;
+
+      if (findDuplicatedProduct === 0 || findDuplicatedProduct < 0) {
+        console.log(action.payload);
+        state.products.push(action.payload);
+        state.quantity += 1;
+        state.total += action.payload.price * state.quantity;
+      }
+
+      if (findDuplicatedProduct > 0) {
+        state.products[findDuplicatedProduct].quantity +=
+          action.payload.quantity;
+        state.total += action.payload.price * state.quantity;
+      }
     },
     restCart: (state) => {
       state.products = [];

@@ -15,13 +15,13 @@ export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
   console.log({ email });
   useEffect(() => {
-    if (!stripe) {
-      return;
-    }
+    console.log({ stripe });
+    if (!stripe) return;
 
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
+    console.log({ clientSecret });
 
     if (!clientSecret) {
       return;
@@ -47,7 +47,7 @@ export default function CheckoutForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log({ e });
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
@@ -55,13 +55,11 @@ export default function CheckoutForm() {
     }
 
     setIsLoading(true);
-
+    console.log({elements})
     const { error } = await stripe.confirmPayment({
       elements,
-      confirmParams: {
-        // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
-      },
+
+    
     });
 
     // This point will only be reached if there is an immediate error when

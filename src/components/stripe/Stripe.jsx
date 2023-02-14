@@ -5,7 +5,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import "./App.css";
 import { useEffect, useState } from "react";
-import { paymentApi } from "../../api/productApi";
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE}`);
 
@@ -15,7 +14,7 @@ export const Stripe = () => {
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     // getSecret();
-    fetch("http://localhost:8080/create-payment-intent", {
+    fetch(`${process.env.REACT_APP_PORT}/create-payment-intent`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),

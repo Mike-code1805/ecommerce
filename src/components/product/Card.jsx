@@ -7,7 +7,7 @@ import { Title } from "./Title";
 import { Buttons } from "./Buttons";
 import { Image } from "./Image";
 import { useDispatch } from "react-redux";
-import { addProduct, restCart } from "../../context/cart";
+import { addCart, restCart } from "../../context/cart";
 import { useNavigate } from "react-router-dom";
 
 export const Card = ({ product }) => {
@@ -28,7 +28,7 @@ export const Card = ({ product }) => {
         />
         <Buttons
           children={<AddShoppingCartIcon />}
-          funcOnClick={() => dispatch(addProduct(product))}
+          funcOnClick={() => dispatch(addCart({ ...product, quantity: 1 }))}
         />
       </div>
     </div>

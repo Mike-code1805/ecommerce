@@ -1,11 +1,29 @@
-// import { useSelector } from 'react-redux';
-import { useProducts } from '../../hooks/useProductsFetch';
-import { Card } from '../product/Card';
-import { Loading } from '../loading/Loading';
-import styles from './styles.module.css';
+import { Card } from "../product/Card";
+import { Loading } from "../loading/Loading";
+import styles from "./styles.module.css";
+import { useEffect, useState } from "react";
+import { publicApi } from "../../api/productApi";
 
 export const Cards = () => {
-  const { isFetching, products } = useProducts();
+  // const { isFetching, products } = useProducts();
+  const [products, setproducts] = useState([]);
+  const [isFetching, setisFetching] = useState(true);
+  const [errorMessage, seterrorMessage] = useState(false);
+
+  useEffect(() => {
+    const getPorducts = async () => {
+      try {
+        const products = await publicApi.get("/api/product");
+        setproducts(products.data);
+        setisFetching(false);
+      } catch (error) {
+        seterrorMessage(true);
+      }
+    };
+    getPorducts();
+  }, []);
+
+  console.log({ products });
 
   if (isFetching) {
     return (

@@ -1,23 +1,11 @@
-// import { useSelector } from 'react-redux';
 import { useSelector } from "react-redux";
-import { useCarts } from "../../hooks/useCarts";
-import { Loading } from "../loading/Loading";
 import { SingleCart } from "./SingleCart";
 import "./style.css";
 
 export const Cart = () => {
-  const cart = useSelector((state) => state.cart);
-  const { carts, isFetching } = useCarts();
+  const { total, products } = useSelector((state) => state.cart);
 
-  console.log({ cart });
-
-  if (isFetching) {
-    return (
-      <div className="containerLoading">
-        <Loading />
-      </div>
-    );
-  }
+  console.log({ products });
 
   return (
     <div className="containerCart">
@@ -26,8 +14,8 @@ export const Cart = () => {
           <h3 className="Heading">Shopping Cart</h3>
           <h5 className="Action">Remove all</h5>
         </div>
-        {carts[0].products.map((prod, index) => (
-          <SingleCart key={index} idProduct={prod.productId} />
+        {products.map((prod, index) => (
+          <SingleCart key={index} product={prod} />
         ))}
 
         <hr />
@@ -35,9 +23,9 @@ export const Cart = () => {
           <div className="total">
             <div>
               <div className="Subtotal">Sub-Total</div>
-              <div className="items">{carts[0].products.length} items</div>
+              <div className="items">{products.length} items</div>
             </div>
-            <div className="total-amount">S/ {0}</div>
+            <div className="total-amount">S/ {total}</div>
           </div>
           <button className="button">Checkout</button>
         </div>

@@ -2,6 +2,6 @@ import axios from "axios";
 
 export const productApi = axios.create();
 
-export const paymentApi = axios.create({
-    baseURL: "http://localhost:8080"
+export const publicApi = axios.create({
+  baseURL: `${process.env.REACT_APP_PORT}`,
 });

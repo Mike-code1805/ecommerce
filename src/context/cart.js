@@ -10,31 +10,31 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addProduct: (state, action) => {
+    addCart: (state, action) => {
+      console.log(action.payload);
       const findDuplicatedProduct = state.products.findIndex(
-        (product) => product.id === action.payload.id
+        (product) => product._id === action.payload._id
       );
-
-      if (findDuplicatedProduct === 0 || findDuplicatedProduct < 0) {
-        console.log(action.payload);
+      if (state.products.length === 0 || findDuplicatedProduct < 0) {
         state.products.push(action.payload);
         state.quantity += 1;
-        state.total += action.payload.price * state.quantity;
+        state.total += action.payload.price * action.payload.quantity;
       }
 
-      if (findDuplicatedProduct > 0) {
+      if (findDuplicatedProduct >= 0) {
         state.products[findDuplicatedProduct].quantity +=
           action.payload.quantity;
-        state.total += action.payload.price * state.quantity;
+        state.total += action.payload.price * action.payload.quantity;
       }
     },
     restCart: (state) => {
       state.products = [];
       state.quantity = 0;
+      state.total = 0;
     },
   },
 });
 
-export const { addProduct, restCart } = cartSlice.actions;
+export const { addCart, restCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

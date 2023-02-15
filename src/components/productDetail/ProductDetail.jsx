@@ -31,7 +31,7 @@ export const ProductDetail = () => {
             <div className={styles.filterContainer}>
               <div className={styles.filter}>
                 <span className={styles.filterTitle}>Id:</span>
-                {product.id}
+                {product._id}
               </div>
               {/* <div className={styles.filter}>
             <span className={styles.filterTitle}>Dimensiones:</span>

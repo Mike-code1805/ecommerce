@@ -1,18 +1,25 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { restCart } from "../../context/cart";
 import { SingleCart } from "./SingleCart";
 import "./style.css";
 
 export const Cart = () => {
   const { total, products } = useSelector((state) => state.cart);
-
   console.log({ products });
+  const dispatch = useDispatch();
+
+  const handleReset = () => {
+    dispatch(restCart());
+  };
 
   return (
     <div className="containerCart">
       <div className="CartContainer">
         <div className="Header">
           <h3 className="Heading">Shopping Cart</h3>
-          <h5 className="Action">Remove all</h5>
+          <button className="Action" onClick={handleReset}>
+            Remove all
+          </button>
         </div>
         {products.map((prod, index) => (
           <SingleCart key={index} product={prod} />

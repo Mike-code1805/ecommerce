@@ -24,7 +24,7 @@ export const Card = ({ product }) => {
         />
         <Buttons
           children={<ListAltOutlinedIcon />}
-          funcOnClick={() => navigate(`api/products/${product.id}`)}
+          funcOnClick={() => navigate(`api/products/${product._id}`)}
         />
         <Buttons
           children={<AddShoppingCartIcon />}

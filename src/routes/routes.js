@@ -51,3 +51,37 @@ export const routes = [
     name: "",
   },
 ];
+
+
+export const privateRoutes = [
+  {
+    path: "/",
+    component: MainPage,
+    name: "",
+  },
+  {
+    path: "/api/products",
+    component: Products,
+    name: "PRODUCTOS",
+  },
+  {
+    path: "/api/aboutus",
+    component: AboutUs,
+    name: "ACERCA",
+  },
+  {
+    path: "/api/cart",
+    component: CartPage,
+    name: "",
+  },
+  {
+    path: "/api/products/:id",
+    component: Product,
+    name: "",
+  },
+  {
+    path: "/api/payment",
+    component: Stripe,
+    name: "",
+  },
+];

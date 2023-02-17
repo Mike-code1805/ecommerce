@@ -1,11 +1,19 @@
 import { Form, Formik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { login } from "../../request/userRequest";
 import { Input } from "../form/Input";
 import styles from "./styles.module.css";
 
 export const LoginComponent = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const onLogin = async (value) => {
+    await login(dispatch, value);
+  };
+  console.log({ user });
 
   return (
     <div className={styles.container}>
@@ -23,7 +31,7 @@ export const LoginComponent = () => {
               .max(20, "Password max lenght is 20")
               .required("Password is required"),
           })}
-          onSubmit={(value) => console.log(value)}
+          onSubmit={(value) => onLogin(value)}
         >
           {() => (
             <Form className={styles.form}>

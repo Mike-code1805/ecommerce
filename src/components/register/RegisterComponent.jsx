@@ -2,8 +2,14 @@ import { Form, Formik } from "formik";
 import { Checkbox, Input, Select } from "../form";
 import * as Yup from "yup";
 import styles from "./styles.module.css";
+import { useDispatch } from "react-redux";
+import { register } from "../../request/userRequest";
 
 export const RegisterComponent = () => {
+  const dispatch = useDispatch();
+  const onRegister = async (value) => {
+    await register(dispatch, value);
+  };
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -16,7 +22,7 @@ export const RegisterComponent = () => {
             password: "",
             passwordConfirmation: "",
             gender: "",
-            termsCondi: false,
+            termsCond: false,
           }}
           validationSchema={Yup.object({
             username: Yup.string().required("Username is required"),
@@ -33,11 +39,11 @@ export const RegisterComponent = () => {
             passwordConfirmation: Yup.string()
               .required("Password is required")
               .oneOf([Yup.ref("password"), null], "Password must be same"),
-            termsCondi: Yup.boolean()
+            termsCond: Yup.boolean()
               .required("Terms are required")
               .oneOf([true], "Terms must be true"),
           })}
-          onSubmit={(value) => console.log(value)}
+          onSubmit={(value) => onRegister(value)}
         >
           {() => (
             <Form className={styles.form}>
@@ -79,7 +85,7 @@ export const RegisterComponent = () => {
 
               <Checkbox
                 label="Acepte los términos y condiciones"
-                name="termsCondi"
+                name="termsCond"
                 type="checkbox"
               />
 

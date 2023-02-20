@@ -1,3 +1,4 @@
+import { Stripe } from "../components/stripe/Stripe";
 import {
   AboutUs,
   CartPage,
@@ -5,37 +6,82 @@ import {
   MainPage,
   Products,
   Register,
-} from '../pages';
+  Product,
+} from "../pages";
 
 export const routes = [
   {
-    path: '/',
+    path: "/",
     component: MainPage,
-    name: '',
+    name: "",
   },
   {
-    path: '/api/products',
+    path: "/api/products",
     component: Products,
-    name: 'PRODUCTOS',
+    name: "PRODUCTOS",
   },
   {
-    path: '/api/aboutus',
+    path: "/api/aboutus",
     component: AboutUs,
-    name: 'ACERCA',
+    name: "ACERCA",
   },
   {
-    path: '/auth/register',
+    path: "/auth/register",
     component: Register,
-    name: 'REGISTRO',
+    name: "REGISTRO",
   },
   {
-    path: '/auth/login',
+    path: "/auth/login",
     component: Login,
-    name: 'INICIAR SESION',
+    name: "INICIAR SESION",
   },
   {
-    path: '/api/cart',
+    path: "/api/cart",
     component: CartPage,
-    name: '',
+    name: "",
+  },
+  {
+    path: "/api/products/:id",
+    component: Product,
+    name: "",
+  },
+  {
+    path: "/api/payment",
+    component: Stripe,
+    name: "",
+  },
+];
+
+
+export const privateRoutes = [
+  {
+    path: "/",
+    component: MainPage,
+    name: "",
+  },
+  {
+    path: "/api/products",
+    component: Products,
+    name: "PRODUCTOS",
+  },
+  {
+    path: "/api/aboutus",
+    component: AboutUs,
+    name: "ACERCA",
+  },
+  {
+    path: "/api/cart",
+    component: CartPage,
+    name: "",
+  },
+  {
+    path: "/api/products/:id",
+    component: Product,
+    name: "",
+  },
+  {
+    path: "/api/payment",
+    component: Stripe,
+    name: "",
   },
 ];

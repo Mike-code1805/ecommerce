@@ -1,0 +1,111 @@
+.container {
+}
+
+.wrapper {
+  padding: 50px;
+  display: flex;
+}
+
+.imgContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoContainer {
+  flex: 1;
+  padding: 0px 50px;
+}
+
+.title {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 50px;
+}
+
+.desc {
+  margin: 20px 0px;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.price {
+  font-weight: 100;
+  font-size: 40px;
+  font-family: monospace;
+}
+
+.filterContainer {
+  width: 50%;
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  font-family: monospace;
+  font-size: 25px;
+}
+
+.filterTitle {
+  font-size: 20px;
+  font-weight: 200 bold;
+  font-family: monospace;
+}
+
+.addContainer {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.amountContainer {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.amount {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid teal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
+  font-family: monospace;
+  font-size: 25px;
+}
+
+.button {
+  padding: 15px;
+  border: 2px solid teal;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: monospace;
+  font-size: 25px;
+}
+
+.button:hover {
+  background-color: #f59d38;
+}
+
+.button:active {
+  opacity: 0.2;
+}

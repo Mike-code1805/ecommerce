@@ -1,44 +1,40 @@
-// import { useSelector } from 'react-redux';
-import { useCarts } from '../../hooks/useCarts';
-import { Loading } from '../loading/Loading';
-import { SingleCart } from './SingleCart';
-import './style.css';
+import { useDispatch, useSelector } from "react-redux";
+import { restCart } from "../../context/cart";
+import { SingleCart } from "./SingleCart";
+import "./style.css";
 
 export const Cart = () => {
-  // const { products, quantity, total } = useSelector((state) => state.cart);
-  const { carts, isFetching } = useCarts();
+  const { total, products } = useSelector((state) => state.cart);
+  console.log({ products });
+  const dispatch = useDispatch();
 
-  console.log({ carts });
-
-  if (isFetching) {
-    return (
-      <div className='containerLoading'>
-        <Loading />
-      </div>
-    );
-  }
+  const handleReset = () => {
+    dispatch(restCart());
+  };
 
   return (
-    <div className='containerCart'>
-      <div className='CartContainer'>
-        <div className='Header'>
-          <h3 className='Heading'>Shopping Cart</h3>
-          <h5 className='Action'>Remove all</h5>
+    <div className="containerCart">
+      <div className="CartContainer">
+        <div className="Header">
+          <h3 className="Heading">Shopping Cart</h3>
+          <button className="Action" onClick={handleReset}>
+            Remove all
+          </button>
         </div>
-        {carts[0].products.map((prod, index) => (
-          <SingleCart key={index} idProduct={prod.productId} />
+        {products.map((prod, index) => (
+          <SingleCart key={index} product={prod} />
         ))}
 
         <hr />
-        <div className='checkout'>
-          <div className='total'>
+        <div className="checkout">
+          <div className="total">
             <div>
-              <div className='Subtotal'>Sub-Total</div>
-              <div className='items'>{carts[0].products.length} items</div>
+              <div className="Subtotal">Sub-Total</div>
+              <div className="items">{products.length} items</div>
             </div>
-            <div className='total-amount'>S/ {0}</div>
+            <div className="total-amount">S/ {total}</div>
           </div>
-          <button className='button'>Checkout</button>
+          <button className="button">Checkout</button>
         </div>
       </div>
     </div>

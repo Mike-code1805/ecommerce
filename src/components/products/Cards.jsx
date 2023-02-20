@@ -9,7 +9,6 @@ export const Cards = () => {
   const [products, setproducts] = useState([]);
   const [isFetching, setisFetching] = useState(true);
   const [seterrorMessage] = useState(false);
-
   useEffect(() => {
     const getPorducts = async () => {
       try {
@@ -21,6 +20,7 @@ export const Cards = () => {
       }
     };
     getPorducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log({ products });

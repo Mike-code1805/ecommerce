@@ -11,6 +11,7 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.cart.quantity);
   const user = useSelector((state) => state.user.userData);
+  console.log({ user });
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -40,9 +41,12 @@ export const Navbar = () => {
           <div className={styles.menuItem}>INICIAR SESION</div> */}
         </div>
         <div className={styles.right}>
-          <div className={styles.menuItem} onClick={() => dispatch(logout())}>
-            <h1>Log out</h1>
-          </div>
+          {user ? (
+            <div className={styles.menuItem} onClick={() => dispatch(logout())}>
+              <h1>Log out</h1>
+            </div>
+          ) : null}
+
           <div
             className={styles.menuItem}
             onClick={() => navigate("/api/cart")}

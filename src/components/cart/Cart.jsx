@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { restCart } from "../../context/cart";
 import { SingleCart } from "./SingleCart";
 import "./style.css";
@@ -7,6 +8,8 @@ export const Cart = () => {
   const { total, products } = useSelector((state) => state.cart);
   console.log({ products });
   const dispatch = useDispatch();
+
+  const navigation = useNavigate();
 
   const handleReset = () => {
     dispatch(restCart());
@@ -34,7 +37,9 @@ export const Cart = () => {
             </div>
             <div className="total-amount">S/ {total}</div>
           </div>
-          <button className="button">Checkout</button>
+          <button onClick={() => navigation("/api/payment")} className="button">
+            Checkout
+          </button>
         </div>
       </div>
     </div>

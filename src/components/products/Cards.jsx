@@ -8,7 +8,7 @@ export const Cards = () => {
   // const { isFetching, products } = useProducts();
   const [products, setproducts] = useState([]);
   const [isFetching, setisFetching] = useState(true);
-  const [errorMessage, seterrorMessage] = useState(false);
+  const [seterrorMessage] = useState(false);
 
   useEffect(() => {
     const getPorducts = async () => {

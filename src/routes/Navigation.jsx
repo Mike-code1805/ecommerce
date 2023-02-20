@@ -9,9 +9,6 @@ export const Navigation = () => {
   return (
     <div>
       {/* <Navbar /> */}
-      {routes.map(({ path, component: Component }, index) => {
-        console.log(Component.name);
-      })}
       <Routes>
         {routes.map(({ path, component: Component }, index) => (
           <Route
